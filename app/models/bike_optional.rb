@@ -1,4 +1,5 @@
 class BikeOptional < ApplicationRecord
-  belongs_to :bikes
-  belongs_to :customizations
+  belongs_to :bike
+  belongs_to :customization
+
 end

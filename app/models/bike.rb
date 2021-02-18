@@ -1,4 +1,8 @@
 class Bike < ApplicationRecord
-  has_many :customizations
+  has_many :bike_optionals
+  has_many :customizations, through: :bike_optionals
   has_many :orders
+
+  accepts_nested_attributes_for :customizations
+
 end

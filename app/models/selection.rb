@@ -1,4 +1,4 @@
 class Selection < ApplicationRecord
-  belongs_to :customization
-  belongs_to :selection, :class_name => "Customization"
+  belongs_to :first_customization, class_name: "Customization"
+  belongs_to :second_customization, class_name: "Customization"
 end
