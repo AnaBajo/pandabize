@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_145959) do
+ActiveRecord::Schema.define(version: 2021_02_18_132219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,14 +38,20 @@ ActiveRecord::Schema.define(version: 2021_02_17_145959) do
   create_table "orders", force: :cascade do |t|
     t.integer "bike_id"
     t.integer "user_id"
-    t.jsonb "selected_customizations"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "purchased_customizations", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "customization_id"
+    t.index ["customization_id"], name: "index_purchased_customizations_on_customization_id"
+    t.index ["order_id"], name: "index_purchased_customizations_on_order_id"
+  end
+
   create_table "selections", force: :cascade do |t|
-    t.integer "customization_A_id"
-    t.integer "customization_B_id"
+    t.integer "first_customization_id"
+    t.integer "second_customization_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

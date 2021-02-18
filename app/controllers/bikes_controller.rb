@@ -6,10 +6,12 @@ class BikesController < ApplicationController
 
   def show
     @bike = Bike.find(params[:id])
+    @order = Order.new
   end
 
   def new
     @bike = Bike.new
+    # @bike.customizations.build
   end
 
   def create
@@ -25,7 +27,12 @@ class BikesController < ApplicationController
   private
 
   def bike_params
-    params.require(:bike).permit(:name)
+    params.require(:bike).permit(
+      :name,
+      customization_attributes: [
+        :name,
+        :value
+      ]
+    )
   end
-
 end
