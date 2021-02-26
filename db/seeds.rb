@@ -18,14 +18,17 @@ bike_5 = Bike.create(name: "Giant")
 
 puts "Creating customizations"
 
-wheel_customization_1 = Customization.create(name: 'Wheel size', value: 17)
-wheel_customization_2 = Customization.create(name: 'Wheelsize', value: 19)
-wheel_customization_3 = Customization.create(name: 'Wheelsize', value: 21)
-rim_customization_1 = Customization.create(name: 'Rim color', value: 'Black')
-rim_customization_2 = Customization.create(name: 'Rim color', value: 'Blue')
-rim_customization_3 = Customization.create(name: 'Rim color', value: 'Green')
-rim_customization_4 = Customization.create(name: 'Rim color', value: 'Red')
-saddle_customization_1 = Customization.create(name: 'Saddle color', value: 'Black')
-saddle_customization_2 = Customization.create(name: 'Saddle color', value: 'Gray')
-saddle_customization_3 = Customization.create(name: 'Saddle color', value: 'Red')
+wheel_customization_1 = Customization.create(element: 'Wheel size', value: 17)
+wheel_customization_2 = Customization.create(element: 'Wheelsize', value: 19)
+wheel_customization_3 = Customization.create(element: 'Wheelsize', value: 21)
+rim_customization_1 = Customization.create(element: 'Rim color', value: 'Black')
+rim_customization_2 = Customization.create(element: 'Rim color', value: 'Blue')
+rim_customization_3 = Customization.create(element: 'Rim color', value: 'Green')
+rim_customization_4 = Customization.create(element: 'Rim color', value: 'Red')
+saddle_customization_1 = Customization.create(element: 'Saddle color', value: 'Black')
+saddle_customization_2 = Customization.create(element: 'Saddle color', value: 'Gray')
+saddle_customization_3 = Customization.create(element: 'Saddle color', value: 'Red')
+
+
+
 
