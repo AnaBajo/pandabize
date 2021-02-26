@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="d-flex justify-content-center">
+    <h1><%= @bike.name  %></h1>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <h4><%= @customization.element  %>&nbsp;:</h4>
+    <h4>&nbsp;<%= @customization.value  %></h4>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Bike element</th>
+        <th scope="col">Size/Color</th>
+        <th scope="col">Add/Remove dependant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @selections.each do |s|  %>
+        <tr>
+          <th scope="row">&bullet;</th>
+          <td><%= s.element  %></td>
+          <td><%= s.value  %></td>
+          <% if !@customization.upsells.include?(s) %>
+            <td><%= link_to 'Add', save_selection_bike_customization_path(@bike, @customization, second_customization_id: s.id), method: :post %></td>
+          <% else %>
+            <td><%= link_to 'Delete', delete_selection_bike_customization_path(@bike, @customization, second_customization_id: s.id), method: :post %></td>
+          <% end %>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "back",  admin_show_bike_path(@bike), class: "btn btn-primary"  %>
+
+</div>

@@ -1,3 +1,30 @@
 <div class="container">
   <h2><%= @bike.name  %></h2>
+
+  <table class="table table-bordered">
+    <thead>
+      <% @bike.customizations.each do |cust| %>
+
+          <tr>
+            <th scope="col"><%= cust.element %></th>
+            <th scope="col"><%= cust.value %></th>
+            <th scope="col"></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% cust.upsells.each do |upsell|  %>
+        <tr>
+          <th scope="row"></th>
+          <td><%= upsell.element  %></td>
+          <td><%= upsell.value  %></td>
+        </tr>
+
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "home",  bikes_path, class: "btn btn-primary"  %>
 </div>
+
+
+

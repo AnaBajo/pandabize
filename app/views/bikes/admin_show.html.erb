@@ -1,0 +1,56 @@
+<div class="container ">
+
+  <div class="d-flex justify-content-center">
+    <h1><%= @bike.name %></h1>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Bike element</th>
+        <th scope="col">Size/Color</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bike.customizations.each do |cst|  %>
+        <tr>
+          <th scope="row">&bullet;</th>
+          <td><%= cst.element %></td>
+          <td><%= cst.value %></td>
+          <td><%= link_to 'edit', add_selections_bike_customization_path(@bike, cst) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center">
+    <h3>Dependant availabilities among customizations</h3>
+  </div>
+
+
+  <table class="table table-bordered">
+    <thead>
+      <% @bike.customizations.each do |cust| %>
+
+          <tr>
+            <th scope="col"><%= cust.element %></th>
+            <th scope="col"><%= cust.value %></th>
+            <th scope="col"></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% cust.upsells.each do |upsell|  %>
+        <tr>
+          <th scope="row"></th>
+          <td><%= upsell.element  %></td>
+          <td><%= upsell.value  %></td>
+        </tr>
+
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "home",  bikes_path, class: "btn btn-primary"  %>
+</div>
+
